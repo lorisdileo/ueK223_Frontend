@@ -1,10 +1,12 @@
-import { Route, Routes } from 'react-router-dom';
-import LoginPage from '../components/pages/LoginPage/LoginPage';
-import PrivateRoute from './PrivateRoute';
-import HomePage from '../components/pages/HomePage';
-import UserTable from '../components/pages/UserPage/UserTable';
-import UserPage from '../components/pages/UserPage/UserPage';
-import authorities from '../config/Authorities';
+import { Route, Routes } from "react-router-dom";
+import LoginPage from "../components/pages/LoginPage/LoginPage";
+import PrivateRoute from "./PrivateRoute";
+import HomePage from "../components/pages/HomePage";
+import UserTable from "../components/pages/UserPage/UserTable";
+import UserPage from "../components/pages/UserPage/UserPage";
+import authorities from "../config/Authorities";
+import BlogListPage from "../components/pages/BlogPage/BlogListPage";
+import UnauthorizedPage from "../components/pages/UnauthorizedPage";
 
 /**
  * Router component renders a route switch with all available pages
@@ -17,24 +19,29 @@ const Router = () => {
 
   return (
     <Routes>
-      <Route path={'/'} element={<HomePage />} />
-      <Route path={'/login'} element={<LoginPage />} />
+      <Route path={"/"} element={<HomePage />} />
+      <Route path={"/login"} element={<LoginPage />} />
+      <Route path={"/blogs"} element={<BlogListPage />} />
+      <Route path={"/unauthorized"} element={<UnauthorizedPage />} />
 
       <Route
-        path={'/users'}
+        path={"/users"}
         element={<PrivateRoute requiredAuths={[]} element={<UserTable />} />}
       />
       <Route
-        path='/useredit'
+        path="/useredit"
         element={
           <PrivateRoute
-            requiredAuths={[authorities.USER_DEACTIVATE, authorities.USER_CREATE]}
+            requiredAuths={[
+              authorities.USER_DEACTIVATE,
+              authorities.USER_CREATE,
+            ]}
             element={<UserPage />}
           ></PrivateRoute>
         }
       />
       <Route
-        path='/useredit/:userId'
+        path="/useredit/:userId"
         element={
           <PrivateRoute
             requiredAuths={[authorities.USER_READ]}
@@ -43,7 +50,7 @@ const Router = () => {
         }
       />
 
-      <Route path='*' element={<div>Not Found</div>} />
+      <Route path="*" element={<div>Not Found</div>} />
     </Routes>
   );
 };
