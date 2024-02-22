@@ -1,19 +1,22 @@
 import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
 import React from "react";
+import { BlogPost } from "../../types/models/BlogPost.model";
 
-export default function BlogCard() {
+export default function BlogCard(post: BlogPost) {
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardActionArea>
         <CardContent>
-          <Typography gutterBottom>author</Typography>
+          <Typography gutterBottom>
+            {!post.user.firstName} {!post.user.lastName}
+          </Typography>
           <Typography variant="h5" component="div">
-            title
+            {!post.title}
           </Typography>
           <Typography sx={{ mb: 1.5, fontSize: 14 }} color="text.secondary">
-            category
+            {!post.category}
           </Typography>
-          <Typography variant="body2">text</Typography>
+          <Typography variant="body2">{!post.text}</Typography>
         </CardContent>
       </CardActionArea>
     </Card>
