@@ -94,7 +94,7 @@ const BlogPostForm = ({ blogPost, submitActionHandler }: BlogPostProps) => {
             variant="contained"
             color="error"
             onClick={() => {
-              navigate("/blogs");
+              navigate("/blog/feed");
             }}
           >
             Cancel
