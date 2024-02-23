@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2024-02-23T15:01:21.573Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.8 Chrome/112.0.5615.165 Electron/24.2.0 Safari/537.36" etag="du3ZCAMDzwuNCv15g1Pv" version="21.2.8" type="device">
+<mxfile host="Electron" modified="2024-02-23T15:16:43.902Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.8 Chrome/112.0.5615.165 Electron/24.2.0 Safari/537.36" etag="RXAi85rV3YpSY001oaW4" version="21.2.8" type="device">
   <diagram name="Seite-1" id="9lD2jJD-85JRqLBcWQPm">
     <mxGraphModel dx="790" dy="465" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -98,10 +98,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="c6YCzjMcsGkBFkXlxIM_-10" value="&lt;font style=&quot;font-size: 6px;&quot;&gt;Neue Blog-Instanz erstellen und die Daten zuweisen&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="440" y="185" width="150" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="c6YCzjMcsGkBFkXlxIM_-11" value="&lt;font style=&quot;font-size: 6px;&quot;&gt;Blogpost in der Datenbank speichern&lt;/font&gt;" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+        <mxCell id="c6YCzjMcsGkBFkXlxIM_-11" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="370" y="240" as="sourcePoint" />
             <mxPoint x="590" y="240" as="targetPoint" />
