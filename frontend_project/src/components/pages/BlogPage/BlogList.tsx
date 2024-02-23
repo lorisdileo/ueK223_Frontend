@@ -6,11 +6,11 @@ import { Button, Card, CardActionArea, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { CardContent } from "@mui/joy";
 
-const BlogPostsPublicPage = () => {
+const BlogList = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const navigate = useNavigate();
   const [page, setPage] = useState(1);
-  const postsPerPage = 10;
+  const postsPerPage = 5;
   const [sortOrder, setSortOrder] = useState("asc");
 
   useEffect(() => {
@@ -82,4 +82,4 @@ const BlogPostsPublicPage = () => {
   );
 };
 
-export default BlogPostsPublicPage;
+export default BlogList;

@@ -4,14 +4,14 @@ import PrivateRoute from "./PrivateRoute";
 import HomePage from "../components/pages/HomePage/HomePage";
 import UserTable from "../components/pages/UserPage/UserTable";
 import UserPage from "../components/pages/UserPage/UserPage";
-import BlogPostTable from "../components/pages/BlogPage/BlogPostTable";
-import BlogPostPage from "../components/pages/BlogPage/BlogPostPage";
+import BlogListOfUser from "../components/pages/BlogPage/BlogListOfUser";
+import BlogCreation from "../components/pages/BlogPage/BlogCreation";
 import UserHomePage from "../components/pages/HomePage/UserHomePage";
-import BlogPostPublicPage from "../components/pages/BlogPage/BlogPostPublicPage";
-import BlogPostsPublicPage from "../components/pages/BlogPage/BlogPostsPublicPage";
+import BlogDetailPage from "../components/pages/BlogPage/BlogDetailPage";
+import BlogList from "../components/pages/BlogPage/BlogList";
 import authorities from "../config/Authorities";
-import AdminPage from "../components/pages/AdminPage/AdminPage";
-import AdminTable from "../components/pages/AdminPage/AdminTable";
+import AdminPage from "../components/pages/AdminPage/AdminBlogEdit";
+import AdminBlogList from "../components/pages/AdminPage/AdminBlogList";
 /**
  * Router component renders a route switch with all available pages
  */
@@ -26,8 +26,8 @@ const Router = () => {
       {/* All visitors and users have access to the following routes */}
       <Route path={"/"} element={<HomePage />} />
       <Route path={"/login"} element={<LoginPage />} />
-      <Route path={"/blog/feed"} element={<BlogPostsPublicPage />} />
-      <Route path={"/blog/:blogPostId"} element={<BlogPostPublicPage />} />
+      <Route path={"/blog/feed"} element={<BlogList />} />
+      <Route path={"/blog/:blogPostId"} element={<BlogDetailPage />} />
 
       {/* Only logged in users can access the following pages */}
       <Route
@@ -51,7 +51,7 @@ const Router = () => {
                 name: authorities.BLOG_MODIFY_BY_ID,
               },
             ]}
-            element={<BlogPostTable />}
+            element={<BlogListOfUser />}
           ></PrivateRoute>
         }
       />
@@ -62,7 +62,7 @@ const Router = () => {
             authorities={[
               { id: authorities.BLOG_CREATE, name: authorities.BLOG_CREATE },
             ]}
-            element={<BlogPostPage />}
+            element={<BlogCreation />}
           ></PrivateRoute>
         }
       />
@@ -80,7 +80,7 @@ const Router = () => {
                 name: authorities.BLOG_DELETE_BY_ID,
               },
             ]}
-            element={<BlogPostPage />}
+            element={<BlogCreation />}
           ></PrivateRoute>
         }
       />
@@ -107,7 +107,7 @@ const Router = () => {
             authorities={[
               { id: authorities.USER_MODIFY, name: authorities.USER_MODIFY },
             ]}
-            element={<AdminTable />}
+            element={<AdminBlogList />}
           ></PrivateRoute>
         }
       />

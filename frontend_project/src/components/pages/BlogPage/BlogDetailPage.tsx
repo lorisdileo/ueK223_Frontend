@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { Card, Typography } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 
-const BlogPostPublicPage = () => {
+const BlogDetailPage = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const { blogPostId } = useParams();
 
@@ -19,7 +19,7 @@ const BlogPostPublicPage = () => {
           }
         })
         .catch((error) => {
-          console.log(error + "Can't get BlogPost");
+          console.log(error + " Failed to get BlogPost");
         });
     }
   }, [blogPostId]);
@@ -48,4 +48,4 @@ const BlogPostPublicPage = () => {
   );
 };
 
-export default BlogPostPublicPage;
+export default BlogDetailPage;

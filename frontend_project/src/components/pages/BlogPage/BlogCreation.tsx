@@ -6,7 +6,7 @@ import BlogPostForm from "../../molecules/BlogPostForm/BlogPostForm";
 import { useNavigate, useParams } from "react-router-dom";
 import ActiveUserContext from "../../../Contexts/ActiveUserContext";
 
-const BlogPostPage = () => {
+const BlogCreation = () => {
   const navigate = useNavigate();
   const { blogPostId } = useParams();
   const { user } = useContext(ActiveUserContext);
@@ -54,4 +54,4 @@ const BlogPostPage = () => {
   );
 };
 
-export default BlogPostPage;
+export default BlogCreation;

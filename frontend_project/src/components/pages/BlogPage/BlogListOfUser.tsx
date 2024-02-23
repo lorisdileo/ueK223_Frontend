@@ -7,7 +7,7 @@ import { CardContent } from "@mui/joy";
 import { Button, Card, CardActions } from "@mui/material";
 import ActiveUserContext from "../../../Contexts/ActiveUserContext";
 
-const BlogPostTable = () => {
+const BlogListOfUser = () => {
   const navigate = useNavigate();
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const { user } = useContext(ActiveUserContext);
@@ -85,4 +85,4 @@ const BlogPostTable = () => {
   );
 };
 
-export default BlogPostTable;
+export default BlogListOfUser;

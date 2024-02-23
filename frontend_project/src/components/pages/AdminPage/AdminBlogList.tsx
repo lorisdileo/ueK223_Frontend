@@ -6,7 +6,7 @@ import BlogPostService from "../../../Services/BlogPostService";
 import { CardContent } from "@mui/joy";
 import { Button, Card, CardActions } from "@mui/material";
 
-const AdminTable = () => {
+const AdminBlogList = () => {
   const navigate = useNavigate();
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
 
@@ -79,4 +79,4 @@ const AdminTable = () => {
   );
 };
 
-export default AdminTable;
+export default AdminBlogList;
