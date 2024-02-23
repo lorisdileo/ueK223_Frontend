@@ -35,7 +35,11 @@ const BlogPostTable = () => {
   };
 
   const handleDelete = (blogPostId: string) => {
-    BlogPostService.deleteBlogPost(blogPostId);
+    BlogPostService.deleteBlogPost(blogPostId).then(() =>
+      setBlogPosts(
+        blogPosts.filter((blogPost: BlogPost) => blogPost.id !== blogPostId)
+      )
+    );
   };
 
   return (

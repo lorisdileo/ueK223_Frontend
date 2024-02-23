@@ -16,14 +16,9 @@ const BlogPostService = {
   },
 
   addBlogPost: (blogPost: BlogPost) => {
-    return api
-      .post("/blog/", blogPost)
-      .then((res) => {
-        return res.data;
-      })
-      .catch((error) => {
-        console.log(error + " Failed to add BlogPost");
-      });
+    return api.post("/blog/", blogPost).then((res) => {
+      return res.data;
+    });
   },
 
   deleteBlogPostFromUser: (id: string) => {

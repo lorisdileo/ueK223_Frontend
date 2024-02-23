@@ -7,11 +7,10 @@ import { useNavigate } from "react-router-dom";
 import { CardContent } from "@mui/joy";
 
 const BlogPostsPublicPage = () => {
-  const [blopPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const navigate = useNavigate();
   const [page, setPage] = useState(1);
-  const postsPerPage = 5;
-  const [sortBy, setSortBy] = useState("createdAt");
+  const postsPerPage = 10;
   const [sortOrder, setSortOrder] = useState("asc");
 
   useEffect(() => {
@@ -21,28 +20,22 @@ const BlogPostsPublicPage = () => {
       .then((data) => {
         const sortedPosts = data.data.sort((a: any, b: any) => {
           if (sortOrder === "asc") {
-            return a[sortBy] < b[sortBy] ? -1 : 1;
+            return a.title < b.title ? -1 : 1;
           } else {
-            return a[sortBy] > b[sortBy] ? -1 : 1;
+            return a.title > b.title ? -1 : 1;
           }
         });
 
         const slicedPosts = sortedPosts.slice(startIndex, endIndex);
         setBlogPosts(slicedPosts);
-        console.log(slicedPosts);
       })
       .catch((error) => {
         console.log(error + " Can't sort BlogPosts");
       });
-  }, [page, postsPerPage, sortBy, sortOrder]);
+  }, [page, postsPerPage, sortOrder]);
 
-  const handleSortChange = (field: string) => {
-    if (sortBy === field) {
-      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
-    } else {
-      setSortBy(field);
-      setSortOrder("asc");
-    }
+  const handleSortChange = () => {
+    setSortOrder(sortOrder === "asc" ? "desc" : "asc");
   };
 
   const handleClick = (blogPostId: string) => {
@@ -53,9 +46,9 @@ const BlogPostsPublicPage = () => {
     <div>
       <div>
         Sort by:
-        <button onClick={() => handleSortChange("title")}>Title</button>
+        <button onClick={handleSortChange}>Title</button>
       </div>
-      {blopPosts.map((blogPost) => (
+      {blogPosts.map((blogPost) => (
         <div key={blogPost.id}>
           <Card sx={{ minWidth: 275 }} onClick={() => handleClick(blogPost.id)}>
             <CardActionArea>
