@@ -21,20 +21,12 @@ const BlogPostService = {
     });
   },
 
-  deleteBlogPostFromUser: (id: string) => {
-    return api.delete(`/blog/${id}`);
-  },
-
-  updateBlogPostFromUser: (blogPost: BlogPost) => {
-    return api.put(`/blog/${blogPost.id}`, blogPost);
-  },
-
   deleteBlogPost: (id: string) => {
     return api.delete(`/blog/${id}`);
   },
 
   updateBlogPost: (blogPost: BlogPost) => {
-    return api.put(`/blog/${blogPost.id}`);
+    return api.put(`/blog/${blogPost.id}`, blogPost);
   },
 };
 

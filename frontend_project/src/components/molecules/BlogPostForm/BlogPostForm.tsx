@@ -3,6 +3,8 @@ import { Box, Button, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { object, string } from "yup";
 import { BlogPost } from "../../../types/models/BlogPost.model";
+import { useContext } from "react";
+import ActiveUserContext from "../../../Contexts/ActiveUserContext";
 
 interface BlogPostProps {
   blogPost: BlogPost;
@@ -11,6 +13,7 @@ interface BlogPostProps {
 
 const BlogPostForm = ({ blogPost, submitActionHandler }: BlogPostProps) => {
   const navigate = useNavigate();
+  const { user } = useContext(ActiveUserContext);
 
   const formik = useFormik({
     initialValues: {
@@ -94,7 +97,7 @@ const BlogPostForm = ({ blogPost, submitActionHandler }: BlogPostProps) => {
             variant="contained"
             color="error"
             onClick={() => {
-              navigate("/blog/feed");
+              navigate("/dashboard/" + user?.id);
             }}
           >
             Cancel

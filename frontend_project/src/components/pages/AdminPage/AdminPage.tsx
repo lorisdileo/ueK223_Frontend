@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useEffect, useState } from "react";
 import { BlogPost } from "../../../types/models/BlogPost.model";
 import BlogPostService from "../../../Services/BlogPostService";
 import BlogPostForm from "../../molecules/BlogPostForm/BlogPostForm";
 import { useNavigate, useParams } from "react-router-dom";
+import ActiveUserContext from "../../../Contexts/ActiveUserContext";
 
 const AdminPage = () => {
   const navigate = useNavigate();
   const { blogPostId } = useParams();
+  const { user } = useContext(ActiveUserContext);
   const [blogPost, setBlogPost] = useState<BlogPost>({
     id: "",
     title: "",
@@ -34,7 +36,7 @@ const AdminPage = () => {
     if (blogPostId !== undefined) {
       BlogPostService.updateBlogPost(values)
         .then(() => {
-          navigate("../blogs");
+          navigate("/blog/" + values.id);
         })
         .catch((error) => {
           console.log(error + "Can't navigate to blogs");
@@ -42,7 +44,7 @@ const AdminPage = () => {
     } else {
       BlogPostService.addBlogPost(values)
         .then(() => {
-          navigate("/blogs");
+          navigate("/dashboard/" + user?.id);
         })
         .catch((error) => {
           console.log(error + "Can't navigate to blogs");

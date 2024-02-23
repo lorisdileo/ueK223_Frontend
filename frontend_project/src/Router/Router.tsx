@@ -56,7 +56,7 @@ const Router = () => {
         }
       />
       <Route
-        path={"/blogadd"}
+        path={"/createBlog"}
         element={
           <PrivateRoute
             authorities={[

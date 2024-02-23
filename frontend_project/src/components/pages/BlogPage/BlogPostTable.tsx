@@ -1,33 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BlogPost } from "../../../types/models/BlogPost.model";
 import BlogPostService from "../../../Services/BlogPostService";
 import { CardContent } from "@mui/joy";
 import { Button, Card, CardActions } from "@mui/material";
+import ActiveUserContext from "../../../Contexts/ActiveUserContext";
 
 const BlogPostTable = () => {
   const navigate = useNavigate();
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
-  const userJSON = localStorage.getItem("user");
-  const user = userJSON ? JSON.parse(userJSON) : null;
+  const { user } = useContext(ActiveUserContext);
 
   //Only the users own posts should be shown
   useEffect(() => {
     BlogPostService.getAllBlogPosts()
       .then((data) => {
         const userBlogPosts = data.data.filter(
-          (blogPost: BlogPost) => blogPost.user.id === user.id
+          (blogPost: BlogPost) => blogPost.user.id === user?.id
         );
         setBlogPosts(userBlogPosts);
       })
       .catch((error) => {
         console.log(error + "Can't get BlogPosts");
       });
-  }, [user.id]);
+  }, [user?.id]);
 
   const handleAdd = () => {
-    navigate("../blogadd/");
+    navigate("../createBlog");
   };
 
   const handleEdit = (blogPostId: string) => {
