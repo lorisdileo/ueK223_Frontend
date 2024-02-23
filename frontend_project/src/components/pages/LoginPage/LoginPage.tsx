@@ -57,7 +57,6 @@ const Login = () => {
           <p>email: admin@example.com</p>
           <p>pw: 1234</p>
         </Grid>
-
         <Formik
           initialValues={{
             email: "",
@@ -119,6 +118,9 @@ const Login = () => {
         <Typography>
           {" "}
           Do you have an account ?<Link href="#">Sign Up</Link>
+        </Typography>{" "}
+        <Typography>
+          <Link href="/">Go back</Link>
         </Typography>
       </Paper>
     </Grid>

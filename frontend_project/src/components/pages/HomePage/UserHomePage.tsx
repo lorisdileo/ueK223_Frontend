@@ -11,11 +11,16 @@ const UserHomePage = () => {
     color: "white",
   };
   const navigate = useNavigate();
+  //gets user data from localstorage so that the page will only show the users posts
   const userJSON = localStorage.getItem("user");
   const user = userJSON ? JSON.parse(userJSON) : null;
 
   const handleClick = () => {
     navigate("/dashboard/" + user.id);
+  };
+
+  const handleClickAll = () => {
+    navigate("/blog/feed");
   };
 
   return (
@@ -34,6 +39,15 @@ const UserHomePage = () => {
         onClick={handleClick}
       >
         Your Blog Posts
+      </Button>
+      <Button
+        type="submit"
+        color="primary"
+        variant="contained"
+        style={buttonStyle}
+        onClick={handleClickAll}
+      >
+        All Blog Posts
       </Button>
       <img
         src={logo}

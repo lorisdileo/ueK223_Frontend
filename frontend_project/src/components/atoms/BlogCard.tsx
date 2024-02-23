@@ -3,6 +3,7 @@ import React from "react";
 import { BlogPost } from "../../types/models/BlogPost.model";
 
 export default function BlogCard(post: BlogPost) {
+  //variation of card used for the getAll, couldn't reference it :(
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardActionArea>

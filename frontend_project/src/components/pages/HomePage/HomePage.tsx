@@ -17,7 +17,7 @@ const HomePage = () => {
   };
 
   const handleClickBlogs = () => {
-    navigate("/blogs");
+    navigate("/blog/feed");
   };
 
   return (
