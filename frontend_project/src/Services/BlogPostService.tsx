@@ -11,8 +11,9 @@ const BlogPostService = {
     return api.get(`/blog/feed`);
   },
 
-  getAllBlogPostsWithPaging: (pageNum: number) => {
-    return api.get(`/blog/feed/${pageNum}`);
+  getAllBlogPostsWithPaging: async (pageNum: number): Promise<BlogPost[]> => {
+    const { data } = await api.get(`/blog/feed/${pageNum}`);
+    return data;
   },
 
   addBlogPost: (blogPost: BlogPost) => {

@@ -6,36 +6,27 @@ import { Button, Card, CardActionArea, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { CardContent } from "@mui/joy";
 
+/* Method to get all existing blog posts. Blogs displayed here cannot be modified.
+This page also implements paging and sorting */
+
 const BlogList = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const navigate = useNavigate();
-  const [page, setPage] = useState(1);
-  const postsPerPage = 5;
-  const [sortOrder, setSortOrder] = useState("asc");
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
-    const startIndex = (page - 1) * postsPerPage;
-    const endIndex = startIndex + postsPerPage;
-    BlogPostService.getAllBlogPosts()
+    BlogPostService.getAllBlogPostsWithPaging(page)
       .then((data) => {
-        const sortedPosts = data.data.sort((a: any, b: any) => {
-          if (sortOrder === "asc") {
-            return a.title < b.title ? -1 : 1;
-          } else {
-            return a.title > b.title ? -1 : 1;
-          }
-        });
-
-        const slicedPosts = sortedPosts.slice(startIndex, endIndex);
-        setBlogPosts(slicedPosts);
+        setBlogPosts(data);
       })
       .catch((error) => {
         console.log(error + " Can't sort BlogPosts");
       });
-  }, [page, postsPerPage, sortOrder]);
+  }, [page]);
 
+  //reverses the current sort method (asc -> desc or desc -> asc)
   const handleSortChange = () => {
-    setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    setBlogPosts([...blogPosts].reverse());
   };
 
   const handleClick = (blogPostId: string) => {
@@ -74,8 +65,10 @@ const BlogList = () => {
 
       {/* Buttons for Pagination */}
       <div>
-        <Button onClick={() => setPage(page - 1)}>{"<"}</Button>
-        {page}
+        <Button disabled={page === 0} onClick={() => setPage(page - 1)}>
+          {"<"}
+        </Button>
+        {page + 1}
         <Button onClick={() => setPage(page + 1)}>{">"}</Button>
       </div>
     </div>
