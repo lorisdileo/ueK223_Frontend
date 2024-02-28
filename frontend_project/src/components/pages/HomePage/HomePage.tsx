@@ -3,6 +3,9 @@ import Button from "@mui/material/Button/Button";
 import logo from "../../../logo1.png";
 import { useNavigate } from "react-router-dom";
 
+/* Home page for visitors. This page will only be displayed if nobody is logged in.
+This page allows navigation to the login and list of all blogs. */
+
 const HomePage = () => {
   const buttonStyle = {
     margin: "8px 0",
@@ -17,7 +20,7 @@ const HomePage = () => {
   };
 
   const handleClickBlogs = () => {
-    navigate("/blog/feed");
+    navigate("/blogs");
   };
 
   return (

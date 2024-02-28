@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BlogPost } from "../../../types/models/BlogPost.model";
 import BlogPostService from "../../../Services/BlogPostService";
 import { useParams } from "react-router-dom";
 import { Card, Typography } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
+import ActiveUserContext from "../../../Contexts/ActiveUserContext";
+
+/* Detailed overview for each blog post. 
+Reached from clicking on a post in /blogs. Will display Title, Author, category, and body*/
 
 const BlogDetailPage = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const { blogPostId } = useParams();
+  const { user } = useContext(ActiveUserContext);
 
   useEffect(() => {
     if (blogPostId) {
@@ -31,7 +36,7 @@ const BlogDetailPage = () => {
           <Card sx={{ minWidth: 275 }}>
             <CardContent>
               <Typography gutterBottom>
-                {blogPost.user.firstName} {blogPost.user.lastName}
+                {user?.firstName} {user?.lastName}
               </Typography>
               <Typography variant="h5" component="div">
                 {blogPost.title}

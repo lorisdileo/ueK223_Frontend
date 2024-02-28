@@ -11,6 +11,10 @@ interface BlogPostProps {
   submitActionHandler: (values: BlogPost) => void;
 }
 
+/* The following class is used to create or update a blog post. 
+Using formik for validation, the user will enter the post details 
+and on submission it will navigate to the users dashboard */
+
 const BlogPostForm = ({ blogPost, submitActionHandler }: BlogPostProps) => {
   const navigate = useNavigate();
   const { user } = useContext(ActiveUserContext);
