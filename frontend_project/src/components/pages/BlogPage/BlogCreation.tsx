@@ -6,10 +6,6 @@ import BlogPostForm from "../../molecules/BlogPostForm/BlogPostForm";
 import { useNavigate, useParams } from "react-router-dom";
 import ActiveUserContext from "../../../Contexts/ActiveUserContext";
 
-/* Class for blog creation or to update an existing blog under 
-the currenly logged in user. This class calls up the BlogPostForm 
-to modify the blogs. */
-
 const BlogCreation = () => {
   const navigate = useNavigate();
   const { blogPostId } = useParams();

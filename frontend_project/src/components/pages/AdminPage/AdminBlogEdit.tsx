@@ -6,9 +6,6 @@ import BlogPostForm from "../../molecules/BlogPostForm/BlogPostForm";
 import { useNavigate, useParams } from "react-router-dom";
 import ActiveUserContext from "../../../Contexts/ActiveUserContext";
 
-/* This class is the admin version of the BlogCreation class. 
-This class also calls the BlogPostForm where it can edit existing posts or 
-create new ones. Any new posts created here will be created under the admin user */
 const AdminBlogEdit = () => {
   const navigate = useNavigate();
   const { blogPostId } = useParams();

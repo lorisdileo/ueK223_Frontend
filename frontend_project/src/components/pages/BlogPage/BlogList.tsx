@@ -6,9 +6,6 @@ import { Button, Card, CardActionArea, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { CardContent } from "@mui/joy";
 
-/* Method to get all existing blog posts. Blogs displayed here cannot be modified.
-This page also implements paging and sorting */
-
 const BlogList = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const navigate = useNavigate();
@@ -21,9 +18,6 @@ const BlogList = () => {
     const endIndex = startIndex + postsPerPage;
     BlogPostService.getAllBlogPosts()
       .then((data) => {
-        /*using .sort() the titles are sorted either by asc or desc. 
-        In the case of being sorted by ascending order, if a < b, 
-        -1 is returned indicating that a should be before b. */
         const sortedPosts = data.data.sort((a: any, b: any) => {
           if (sortOrder === "asc") {
             return a.title < b.title ? -1 : 1;
@@ -32,8 +26,6 @@ const BlogList = () => {
           }
         });
 
-        /* Splits the posts up into pages using the variable 
-        postsPerPage to define how much get displayed. */
         const slicedPosts = sortedPosts.slice(startIndex, endIndex);
         setBlogPosts(slicedPosts);
       })

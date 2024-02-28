@@ -3,8 +3,6 @@ import logo from "../../../logo1.png";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-/* Home page for logged in users. Allows navigation to all blogs and users blogs */
-
 const UserHomePage = () => {
   const buttonStyle = {
     margin: "8px 0",
@@ -13,8 +11,7 @@ const UserHomePage = () => {
     color: "white",
   };
   const navigate = useNavigate();
-  //gets user data from localstorage and checks to see if a user is logged in.
-  //if true is returned, user will see this page.
+  //gets user data from localstorage so that the page will only show the users posts
   const userJSON = localStorage.getItem("user");
   const user = userJSON ? JSON.parse(userJSON) : null;
 
@@ -23,7 +20,7 @@ const UserHomePage = () => {
   };
 
   const handleClickAll = () => {
-    navigate("/blogs");
+    navigate("/blog/feed");
   };
 
   return (

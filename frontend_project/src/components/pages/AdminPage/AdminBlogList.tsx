@@ -6,9 +6,6 @@ import BlogPostService from "../../../Services/BlogPostService";
 import { CardContent } from "@mui/joy";
 import { Button, Card, CardActions } from "@mui/material";
 
-/* Listing of all created blogs from all users. The admin can update 
-and delete existing blogs or create new ones under the admin user */
-
 const AdminBlogList = () => {
   const navigate = useNavigate();
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
