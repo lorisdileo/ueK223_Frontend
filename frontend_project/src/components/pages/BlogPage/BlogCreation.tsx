@@ -37,7 +37,7 @@ const BlogCreation = () => {
     valuesToSubmit.user.id = user?.id ?? "";
     if (blogPostId !== undefined) {
       BlogPostService.updateBlogPost(values).then(() => {
-        navigate("/blog/" + values.id);
+        navigate("/dashboard/" + values.id);
       });
     } else {
       BlogPostService.addBlogPost(values).then(() => {
