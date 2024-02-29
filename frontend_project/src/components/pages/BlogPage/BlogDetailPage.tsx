@@ -5,6 +5,9 @@ import { useParams } from "react-router-dom";
 import { Card, Typography } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 
+/* Detailed overview for each blog post. 
+Reached from clicking on a post in /blogs. Will display Title, Author, category, and body */
+
 const BlogDetailPage = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const { blogPostId } = useParams();
