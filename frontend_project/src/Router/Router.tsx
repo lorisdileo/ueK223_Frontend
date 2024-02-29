@@ -26,7 +26,7 @@ const Router = () => {
       {/* All visitors and users have access to the following routes */}
       <Route path={"/"} element={<HomePage />} />
       <Route path={"/login"} element={<LoginPage />} />
-      <Route path={"/blog/feed"} element={<BlogList />} />
+      <Route path={"/blogs"} element={<BlogList />} />
       <Route path={"/blog/:blogPostId"} element={<BlogDetailPage />} />
 
       {/* Only logged in users can access the following pages */}
