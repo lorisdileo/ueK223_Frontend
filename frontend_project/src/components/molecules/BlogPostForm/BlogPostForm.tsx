@@ -6,6 +6,10 @@ import { BlogPost } from "../../../types/models/BlogPost.model";
 import { useContext } from "react";
 import ActiveUserContext from "../../../Contexts/ActiveUserContext";
 
+/* The following class is used to create or update a blog post. 
+Using formik for validation, the user will enter the post details 
+and on submission it will navigate to the users dashboard */
+
 interface BlogPostProps {
   blogPost: BlogPost;
   submitActionHandler: (values: BlogPost) => void;
@@ -39,7 +43,7 @@ const BlogPostForm = ({ blogPost, submitActionHandler }: BlogPostProps) => {
   return (
     <>
       <form onSubmit={formik.handleSubmit}>
-        <h1>Create Blog Post</h1>
+        <h1>Your Blog Post</h1>
         <Box sx={{ paddingTop: "15px" }}>
           <TextField
             id="title"
