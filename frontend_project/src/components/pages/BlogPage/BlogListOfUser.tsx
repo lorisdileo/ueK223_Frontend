@@ -36,6 +36,10 @@ const BlogListOfUser = () => {
     navigate("../createBlog");
   };
 
+  const handleBack = () => {
+    navigate("../home");
+  };
+
   const handleEdit = (blogPostId: string) => {
     navigate("../blogedit/" + blogPostId);
   };
@@ -80,12 +84,21 @@ const BlogListOfUser = () => {
         </div>
       ))}
       <Button
+        sx={{ margin: 1 }}
         size="small"
         color="success"
         variant="contained"
         onClick={handleAdd}
       >
         Add
+      </Button>
+      <Button
+        size="small"
+        color="primary"
+        variant="contained"
+        onClick={handleBack}
+      >
+        Go back
       </Button>
     </>
   );
