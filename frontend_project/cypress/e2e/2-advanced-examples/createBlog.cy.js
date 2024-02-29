@@ -13,21 +13,22 @@ describe("Blog Creation Test with User", () => {
     cy.get("#email").type("ronaldo@example.com");
     cy.get("#password").type("1234");
 
+    // Klicke auf den Sign-In-Button
     cy.contains("Sign in").click();
 
-    // Überprüfe, ob die Anmeldung erfolgreich war und wir auf der Homepage sind
+    // Überprüfe, ob die Anmeldung erfolgreich war und man auf der Homepage ist
     cy.url().should("eq", "http://localhost:3000/home");
 
     // Klicke auf den Button "Your Blog Posts"
     cy.contains("Your Blog Posts").click();
 
-    // Überprüfe, ob wir auf der Dashboard-Seite mit der Benutzer-ID sind
+    // Überprüfe, ob man auf der Dashboard-Seite mit der Benutzer-ID ist
     cy.url().should("include", "http://localhost:3000/dashboard/1c5b661f-ac5d-436f-a839-941e611dcc41");
 
     // Klicke auf den "Add"-Button
     cy.contains("Add").click();
 
-    // Überprüfe, ob wir auf der Seite zum Erstellen eines neuen Blogs sind
+    // Überprüfe, ob man auf der Seite zum Erstellen eines neuen Blogs ist
     cy.url().should("eq", "http://localhost:3000/createBlog");
 
     // Fülle die Felder aus und klicke auf den "Add"-Button
@@ -56,21 +57,22 @@ describe("Blog Creation Test with Admin", () => {
       cy.get("#email").type("admin@example.com");
       cy.get("#password").type("1234");
   
+      // Klicke auf den Sign-In-Button
       cy.contains("Sign in").click();
   
-      // Überprüfe, ob die Anmeldung erfolgreich war und wir auf der Homepage sind
+      // Überprüfe, ob die Anmeldung erfolgreich war und man auf der Homepage ist
       cy.url().should("eq", "http://localhost:3000/home");
   
       // Klicke auf den Button "Your Blog Posts"
       cy.contains("Your Blog Posts").click();
   
-      // Überprüfe, ob wir auf der Dashboard-Seite mit der Benutzer-ID sind
+      // Überprüfe, ob man auf der Dashboard-Seite mit der Benutzer-ID sind
       cy.url().should("include", "http://localhost:3000/dashboard/ba804cb9-fa14-42a5-afaf-be488742fc54");
   
       // Klicke auf den "Add"-Button
       cy.contains("Add").click();
   
-      // Überprüfe, ob wir auf der Seite zum Erstellen eines neuen Blogs sind
+      // Überprüfe, ob man auf der Seite zum Erstellen eines neuen Blogs ist
       cy.url().should("eq", "http://localhost:3000/createBlog");
   
       // Fülle die Felder aus und klicke auf den "Add"-Button
